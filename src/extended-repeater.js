@@ -15,10 +15,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
  */
-function repeater(/* str, options */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function repeater(str, options) {
+  
 }
+
+console.log(repeater('la', { repeatTimes: 3 }))
+
+//node ./src/extended-repeater.js
+//npm ./test/extended-repeater.test.js
 
 module.exports = {
   repeater
