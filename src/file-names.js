@@ -39,7 +39,7 @@ function renameFiles(names) {
 }
 
 //node ./src/file-names.js
-//npm ./test/file-names.test.js
+//npm run test ./test/file-names.test.js
 
 console.log(renameFiles(['doc', 'doc', 'image', 'doc(1)', 'doc']))
 
