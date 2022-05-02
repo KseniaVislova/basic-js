@@ -15,14 +15,33 @@ const { NotImplementedError } = require('../extensions/index.js');
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
  */
-function repeater(str, options) {
-  
+function repeater(str, options ) {
+  if (options.repeatTimes === undefined) options.repeatTimes = 1;
+  if (options.separator === undefined) options.separator = '+';
+  if (options.addition === undefined) options.addition = '';
+  if (options.additionRepeatTimes === undefined) options.additionRepeatTimes = 1;
+  if (options.additionSeparator === undefined) options.additionSeparator = '|';
+  let res = []
+
+  for (let i = 0; i < options.repeatTimes; i++) {
+    let additionStr = []
+
+    for (let j = 0; j < options.additionRepeatTimes; j++) {
+      additionStr.push(String(options.addition))
+    }
+
+    additionStr = additionStr.join(options.additionSeparator)
+
+    res.push(str + additionStr)
+  }
+
+  let separator = options.separator;
+
+  return res.join(separator);
 }
 
-console.log(repeater('la', { repeatTimes: 3 }))
-
 //node ./src/extended-repeater.js
-//npm ./test/extended-repeater.test.js
+//npm run test ./test/extended-repeater.test.js
 
 module.exports = {
   repeater
